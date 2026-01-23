@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Discover Sharada Capital Management's sophisticated trading approach across FX, Futures, and Equities.">
+    <title>Our Strategy | Sharada Capital Management</title>
+    <link rel="icon" href="./assets/images/sharada_title.png" type="image/x-icon">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./assets/src/style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav id="nav" class="scrolled">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <div class="nav-inner">
+            <a class="logo-link" href="./index.html">
+                <img src="./assets/images/sharada_logo.svg" alt="Sharada Capital Management">
+            </a>
+            <label for="menu-toggle" class="menu-icon" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul>
+                <li><a href="./about.html">About Us</a></li>
+                <li><a href="./strategy.html" class="active">Our Strategy</a></li>
+                <li><a href="./offices.html">Offices</a></li>
+                <li><a href="./careers.html">Careers</a></li>
+            </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header id="header">
+        <h1>Our Strategy</h1>
+        <p>Taking trading to the next level</p>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main">
+        <article class="article reveal">
+            <div class="article-header">
+                <h2>Our Approach</h2>
+            </div>
+            <div class="article-content">
+                <p>Sharada has developed a robust low-latency platform capable of supporting various types of strategies
+                    across numerous asset classes. Our prowess extends beyond a static approach, as we are in a
+                    perpetual state of evolution, adapting to changing market dynamics and innovating our strategies
+                    accordingly.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Strategy Cards Section -->
+    <section class="features-section">
+        <h2>What We Trade</h2>
+        <div class="strategy-grid">
+            <!-- FX -->
+            <article class="strategy-card reveal">
+                <div class="icon"><i class="fas fa-dollar-sign"></i></div>
+                <h3>FX Trading</h3>
+                <p class="subtitle">Currency Markets</p>
+                <p>Spot, Forwards, NDFs, Swaps, and Options. We execute sophisticated strategies across all major
+                    currency pairs with low-latency infrastructure designed for optimal execution.</p>
+            </article>
+
+            <!-- Futures -->
+            <article class="strategy-card reveal reveal-delay-1">
+                <div class="icon"><i class="fas fa-chart-bar"></i></div>
+                <h3>Futures</h3>
+                <p class="subtitle">Derivatives Trading</p>
+                <p>Algorithmic trading across global futures markets including equity indices, commodities, and
+                    interest rates with quantitative precision.</p>
+            </article>
+
+            <!-- Equities -->
+            <article class="strategy-card reveal reveal-delay-2">
+                <div class="icon"><i class="fas fa-chart-pie"></i></div>
+                <h3>Equities</h3>
+                <p class="subtitle">Stocks & Options</p>
+                <p>Equities and Equity Options trading with quantitative strategies designed for consistent
+                    risk-adjusted returns in all market conditions.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <img src="./assets/images/sharada_logo.svg" alt="Sharada Capital Management" class="logo">
+        <p class="copyright">&copy; 2011-<span id="year"></span> Sharada Capital Management.</p>
+        <a href="mailto:info@sharadacm.com" class="email-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </footer>
+
+    <!-- Minimal JavaScript -->
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+
+</html>
+

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Sharada Capital Management's office locations across the United States.">
+    <title>Offices | Sharada Capital Management</title>
+    <link rel="icon" href="./assets/images/sharada_title.png" type="image/x-icon">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./assets/src/style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav id="nav" class="scrolled">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <div class="nav-inner">
+            <a class="logo-link" href="./index.html">
+                <img src="./assets/images/sharada_logo.svg" alt="Sharada Capital Management">
+            </a>
+            <label for="menu-toggle" class="menu-icon" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul>
+                <li><a href="./about.html">About Us</a></li>
+                <li><a href="./strategy.html">Our Strategy</a></li>
+                <li><a href="./offices.html" class="active">Offices</a></li>
+                <li><a href="./careers.html">Careers</a></li>
+            </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header id="header">
+        <h1>Our Offices</h1>
+        <p>Strategic locations across the United States</p>
+    </header>
+
+    <!-- Offices Section -->
+    <section class="offices-section">
+        <h2>United States</h2>
+        <div class="offices-grid">
+            <!-- Chicago -->
+            <article class="office-card reveal">
+                <div class="office-image">
+                    <img src="./assets/images/chicago.png" alt="Chicago Office">
+                </div>
+                <div class="office-info">
+                    <h3>Chicago</h3>
+                    <p class="subtitle">Headquarters</p>
+                </div>
+            </article>
+
+            <!-- San Diego -->
+            <article class="office-card reveal reveal-delay-1">
+                <div class="office-image">
+                    <img src="./assets/images/sandiego.png" alt="San Diego Office">
+                </div>
+                <div class="office-info">
+                    <h3>San Diego</h3>
+                    <p class="subtitle">West Coast Hub</p>
+                </div>
+            </article>
+
+            <!-- Sarasota -->
+            <article class="office-card reveal reveal-delay-2">
+                <div class="office-image">
+                    <img src="./assets/images/sarasota.png" alt="Sarasota Office">
+                </div>
+                <div class="office-info">
+                    <h3>Sarasota</h3>
+                    <p class="subtitle">Florida Operations</p>
+                </div>
+            </article>
+
+            <!-- Seattle -->
+            <article class="office-card reveal reveal-delay-3">
+                <div class="office-image">
+                    <img src="./assets/images/seattle.png" alt="Seattle Office">
+                </div>
+                <div class="office-info">
+                    <h3>Seattle</h3>
+                    <p class="subtitle">Pacific Northwest</p>
+                </div>
+            </article>
+
+            <!-- New York -->
+            <article class="office-card reveal reveal-delay-4">
+                <div class="office-image">
+                    <img src="./assets/images/newyork.png" alt="New York Office">
+                </div>
+                <div class="office-info">
+                    <h3>New York</h3>
+                    <p class="subtitle">East Coast Trading</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <img src="./assets/images/sharada_logo.svg" alt="Sharada Capital Management" class="logo">
+        <p class="copyright">&copy; 2011-<span id="year"></span> Sharada Capital Management.</p>
+        <a href="mailto:info@sharadacm.com" class="email-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </footer>
+
+    <!-- Minimal JavaScript -->
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+
+</html>

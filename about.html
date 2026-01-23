@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Sharada Capital Management's culture, values, and leadership team.">
+    <title>About Us | Sharada Capital Management</title>
+    <link rel="icon" href="./assets/images/sharada_title.png" type="image/x-icon">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./assets/src/style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav id="nav" class="scrolled">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <div class="nav-inner">
+            <a class="logo-link" href="./index.html">
+                <img src="./assets/images/sharada_logo.svg" alt="Sharada Capital Management">
+            </a>
+            <label for="menu-toggle" class="menu-icon" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul>
+                <li><a href="./about.html" class="active">About Us</a></li>
+                <li><a href="./strategy.html">Our Strategy</a></li>
+                <li><a href="./offices.html">Offices</a></li>
+                <li><a href="./careers.html">Careers</a></li>
+            </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header id="header">
+        <h1>About Us</h1>
+        <p>Driven people delivering quantitative trading excellence</p>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main">
+        <article class="article reveal">
+            <div class="article-content">
+                <p>At Sharada, we thrive on challenges and embrace the dynamic nature of the markets. With a passion for
+                    innovation, cutting-edge technologies, and data analytics to stay ahead of the curve, we channel our
+                    ambition into strategic decisions that yield consistent returns.</p>
+            </div>
+        </article>
+
+        <article class="article reveal">
+            <div class="article-header">
+                <h2>Our Culture</h2>
+            </div>
+            <div class="article-content">
+                <p>At SCM you will find an academic environment with the fast-paced excitement of a tech startup. We
+                    maintain a casual and open office atmosphere with a flat management structure. Our people are
+                    motivated by a culture that promotes hard work and intellect over corporate politics.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Team Section -->
+    <section class="features-section">
+        <h2>Meet The Team</h2>
+        <div class="team-grid">
+            <!-- Abhiram -->
+            <article class="team-card reveal">
+                <div class="team-avatar">AV</div>
+                <h3>Abhiram Vijayasarathy</h3>
+                <p class="role">Chief Executive Officer</p>
+                <p class="bio">Abhiram Vijayasarathy founded Sharada Capital Management in 2011. Prior to Sharada,
+                    Abhiram
+                    worked as a Senior Portfolio Manager at Citadel, before joining Millennium Partners as a Managing
+                    Director. Abhi received his S.B. in Mathematics & S.B. in Economics from MIT, graduating in 3 years
+                    with Phi Beta Kappa Honors, and earned an M.S. in Financial Mathematics from the University of
+                    Chicago.</p>
+            </article>
+
+            <!-- Andrew -->
+            <article class="team-card reveal reveal-delay-1">
+                <div class="team-avatar">AS</div>
+                <h3>Andrew Solomon</h3>
+                <p class="role">Chief Operating Officer</p>
+                <p class="bio">Andrew is responsible for raising the initial round of capital to form Sharada Capital
+                    Management in 2011 and has taken a leading role in the day-to-day operations of the firm. From
+                    2003-2009, Andrew was co-founder of a student loan provider originating over $3bn in student loans.
+                    Andrew worked in the private equity practice at JP Morgan Partners from 2000-2002, was Director of
+                    Business Development at EMusic.com in 1999-2000, and was a financial analyst in investment banking
+                    at Salomon Brothers between 1996 and 1998. Andrew has a B.A. from Dartmouth College and an MBA from
+                    Harvard Business School.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <img src="./assets/images/sharada_logo.svg" alt="Sharada Capital Management" class="logo">
+        <p class="copyright">&copy; 2011-<span id="year"></span> Sharada Capital Management.</p>
+        <a href="mailto:info@sharadacm.com" class="email-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </footer>
+
+    <!-- Minimal JavaScript -->
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+
+</html>

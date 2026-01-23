@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" fill="none">
+  <!-- Candlestick Chart -->
+  <g>
+    <!-- Candle 1 - Short bearish -->
+    <line x1="25" y1="25" x2="25" y2="75" stroke="#d4af37" stroke-width="1"/>
+    <rect x="20" y="35" width="10" height="25" fill="#0a0f1c"/>
+    
+    <!-- Candle 2 - Tall bullish -->
+    <line x1="45" y1="15" x2="45" y2="80" stroke="#d4af37" stroke-width="1"/>
+    <rect x="40" y="25" width="10" height="40" fill="#d4af37"/>
+    
+    <!-- Candle 3 - Medium bearish -->
+    <line x1="65" y1="20" x2="65" y2="75" stroke="#d4af37" stroke-width="1"/>
+    <rect x="60" y="30" width="10" height="30" fill="#0a0f1c"/>
+    
+    <!-- Candle 4 - Tall bullish -->
+    <line x1="85" y1="10" x2="85" y2="70" stroke="#d4af37" stroke-width="1"/>
+    <rect x="80" y="18" width="10" height="38" fill="#d4af37"/>
+    
+    <!-- Candle 5 - Medium bullish -->
+    <line x1="105" y1="22" x2="105" y2="78" stroke="#d4af37" stroke-width="1"/>
+    <rect x="100" y="32" width="10" height="30" fill="#d4af37"/>
+  </g>
+  
+  <!-- Vertical Divider -->
+  <line x1="130" y1="15" x2="130" y2="85" stroke="#d4af37" stroke-width="2"/>
+  
+  <!-- SCM Text -->
+  <text x="150" y="58" font-family="Georgia, serif" font-size="42" font-weight="600" fill="#d4af37">SCM</text>
+  
+  <!-- Full Name -->
+  <text x="150" y="78" font-family="Arial, sans-serif" font-size="10" font-weight="400" letter-spacing="2" fill="#d4af37">SHARADA CAPITAL MANAGEMENT</text>
+</svg>

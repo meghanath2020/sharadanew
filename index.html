@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Sharada Capital Management - A boutique quantitative trading firm delivering consistent returns through sophisticated algorithmic strategies.">
+    <title>Sharada Capital Management | Quantitative Trading Excellence</title>
+    <link rel="icon" href="./assets/images/sharada_title.png" type="image/x-icon">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./assets/src/style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav id="nav">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <div class="nav-inner">
+            <a class="logo-link" href="./index.html">
+                <img src="./assets/images/sharada_logo.svg" alt="Sharada Capital Management">
+            </a>
+            <label for="menu-toggle" class="menu-icon" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul>
+                <li><a href="./about.html">About Us</a></li>
+                <li><a href="./strategy.html">Our Strategy</a></li>
+                <li><a href="./offices.html">Offices</a></li>
+                <li><a href="./careers.html">Careers</a></li>
+            </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="intro">
+        <img src="./assets/images/sharada_logo.svg" alt="Sharada Capital Management" class="logo">
+        <h1><span>Sharada</span></h1>
+        <p>Capital Management — A boutique quantitative trading firm delivering consistent returns through sophisticated
+            algorithmic strategies.</p>
+        <div class="scroll-down">
+            <a href="#features">
+                <span>Explore</span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <h2>Explore Sharada</h2>
+        <div class="cards-grid">
+            <!-- About Card -->
+            <a href="./about.html" class="card reveal">
+                <div class="card-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>About Us</h3>
+                <p>Discover our culture of innovation and meet the driven team behind Sharada's success.</p>
+                <span class="card-link">
+                    Learn More <i class="fas fa-arrow-right"></i>
+                </span>
+            </a>
+
+            <!-- Strategy Card -->
+            <a href="./strategy.html" class="card reveal reveal-delay-1">
+                <div class="card-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Our Strategy</h3>
+                <p>Explore our sophisticated approach to FX, Futures, and Equities trading.</p>
+                <span class="card-link">
+                    Learn More <i class="fas fa-arrow-right"></i>
+                </span>
+            </a>
+
+            <!-- Offices Card -->
+            <a href="./offices.html" class="card reveal reveal-delay-2">
+                <div class="card-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>Our Offices</h3>
+                <p>Visit our strategic locations across the United States from coast to coast.</p>
+                <span class="card-link">
+                    Learn More <i class="fas fa-arrow-right"></i>
+                </span>
+            </a>
+
+            <!-- Careers Card -->
+            <a href="./careers.html" class="card reveal reveal-delay-3">
+                <div class="card-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h3>Careers</h3>
+                <p>Join a team of talented individuals shaping the future of quantitative trading.</p>
+                <span class="card-link">
+                    Learn More <i class="fas fa-arrow-right"></i>
+                </span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <img src="./assets/images/sharada_logo.svg" alt="Sharada Capital Management" class="logo">
+        <p class="copyright">&copy; 2011-<span id="year"></span> Sharada Capital Management.</p>
+        <a href="mailto:info@sharadacm.com" class="email-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </footer>
+
+    <!-- Minimal JavaScript -->
+    <script>
+        // Year
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Navigation scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 100);
+        });
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+
+</html>
