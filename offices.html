@@ -135,11 +135,12 @@
         // Mobile Menu Toggle
         const menuIcon = document.getElementById('menu-icon');
         const navEl = document.getElementById('nav');
-        menuIcon.addEventListener('click', () => { navEl.classList.toggle('menu-open'); });
+        const navMenu = document.querySelector('#nav ul');
+        menuIcon.addEventListener('click', (e) => { e.stopPropagation(); navEl.classList.toggle('menu-open'); });
         document.querySelectorAll('#nav ul a').forEach(link => { link.addEventListener('click', () => { navEl.classList.remove('menu-open'); }); });
         
         // Close menu when clicking outside
-        document.addEventListener('click', (e) => { if (!navEl.contains(e.target)) { navEl.classList.remove('menu-open'); } });
+        document.addEventListener('click', (e) => { if (navEl.classList.contains('menu-open') && !navMenu.contains(e.target) && !menuIcon.contains(e.target)) { navEl.classList.remove('menu-open'); } });
 // Theme Toggle
         const themeToggle = document.getElementById('theme-toggle');
         const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -155,5 +156,6 @@
 </body>
 
 </html>
+
 
 

@@ -156,8 +156,10 @@
         // Mobile Menu Toggle
         const menuIcon = document.getElementById('menu-icon');
         const navEl = document.getElementById('nav');
+        const navMenu = document.querySelector('#nav ul');
 
-        menuIcon.addEventListener('click', () => {
+        menuIcon.addEventListener('click', (e) => {
+            e.stopPropagation();
             navEl.classList.toggle('menu-open');
         });
 
@@ -170,7 +172,7 @@
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (!navEl.contains(e.target)) {
+            if (navEl.classList.contains('menu-open') && !navMenu.contains(e.target) && !menuIcon.contains(e.target)) {
                 navEl.classList.remove('menu-open');
             }
         });
