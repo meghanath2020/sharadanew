@@ -19,16 +19,15 @@
 <body>
     <!-- Navigation -->
     <nav id="nav" class="scrolled">
-        <input type="checkbox" id="menu-toggle" class="menu-toggle">
         <div class="nav-inner">
             <a class="logo-link" href="./index.html">
                 <img src="./assets/images/sharada_logo.svg" alt="Sharada Capital Management">
             </a>
-            <label for="menu-toggle" class="menu-icon" aria-label="Toggle Menu">
+            <button class="menu-icon" id="menu-icon" aria-label="Toggle Menu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </label>
+            </button>
             <ul>
                 <li><a href="./about.html">About Us</a></li>
                 <li><a href="./strategy.html" class="active">Our Strategy</a></li>
@@ -121,7 +120,15 @@
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll();
 
-        // Theme Toggle
+        // Mobile Menu Toggle
+        const menuIcon = document.getElementById('menu-icon');
+        const navEl = document.getElementById('nav');
+        menuIcon.addEventListener('click', () => { navEl.classList.toggle('menu-open'); });
+        document.querySelectorAll('#nav ul a').forEach(link => { link.addEventListener('click', () => { navEl.classList.remove('menu-open'); }); });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => { if (!navEl.contains(e.target)) { navEl.classList.remove('menu-open'); } });
+// Theme Toggle
         const themeToggle = document.getElementById('theme-toggle');
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.documentElement.setAttribute('data-theme', savedTheme);
@@ -136,4 +143,6 @@
 </body>
 
 </html>
+
+
 

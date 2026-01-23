@@ -19,17 +19,16 @@
 <body>
     <!-- Navigation -->
     <nav id="nav">
-        <input type="checkbox" id="menu-toggle" class="menu-toggle">
         <div class="nav-inner">
             <a class="logo-link" href="./index.html">
                 <img src="./assets/images/sharada_logo.svg" alt="Sharada Capital Management">
             </a>
-            <label for="menu-toggle" class="menu-icon" aria-label="Toggle Menu">
+            <button class="menu-icon" id="menu-icon" aria-label="Toggle Menu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </label>
-            <ul>
+            </button>
+            <ul id="nav-menu">
                 <li><a href="./about.html">About Us</a></li>
                 <li><a href="./strategy.html">Our Strategy</a></li>
                 <li><a href="./offices.html">Offices</a></li>
@@ -152,6 +151,28 @@
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
+        });
+
+        // Mobile Menu Toggle
+        const menuIcon = document.getElementById('menu-icon');
+        const navEl = document.getElementById('nav');
+
+        menuIcon.addEventListener('click', () => {
+            navEl.classList.toggle('menu-open');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('#nav ul a').forEach(link => {
+            link.addEventListener('click', () => {
+                navEl.classList.remove('menu-open');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navEl.contains(e.target)) {
+                navEl.classList.remove('menu-open');
+            }
         });
     </script>
 </body>
