@@ -118,23 +118,25 @@
     color: var(--accent-gold);
 }
 
-.theme-toggle .fa-sun {
-    display: none;
-}
-
-.theme-toggle .fa-moon {
-    display: block;
-}
-
-[data-theme="light"] .theme-toggle .fa-sun,
-[data-theme="light"] .theme-toggle-mobile .fa-sun {
+.theme-toggle .fa-sun,
+.theme-toggle-mobile .fa-sun {
     display: block;
     color: var(--accent-gold);
 }
 
+.theme-toggle .fa-moon,
+.theme-toggle-mobile .fa-moon {
+    display: none;
+}
+
+[data-theme="light"] .theme-toggle .fa-sun,
+[data-theme="light"] .theme-toggle-mobile .fa-sun {
+    display: none;
+}
+
 [data-theme="light"] .theme-toggle .fa-moon,
 [data-theme="light"] .theme-toggle-mobile .fa-moon {
-    display: none;
+    display: block;
 }
 
 /* ============================================
