@@ -32,6 +32,12 @@
                 <li><a href="./strategy.html">Our Strategy</a></li>
                 <li><a href="./offices.html">Offices</a></li>
                 <li><a href="./careers.html">Careers</a></li>
+                <li class="mobile-theme-item">
+                    <button class="theme-toggle-mobile" id="theme-toggle-mobile" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </button>
+                </li>
             </ul>
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                 <i class="fas fa-moon"></i>
@@ -105,7 +111,7 @@
     <footer id="footer">
         <img src="./assets/images/sharada_logo.svg" alt="Sharada Capital Management" class="logo">
         <p class="copyright">&copy; 2011-<span id="year"></span> Sharada Capital Management.</p>
-        <a href="mailto:info@sharadacm.com" class="email-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="mailto:jobs@sharadacm.com" class="email-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
     </footer>
 
     <!-- Minimal JavaScript -->
@@ -132,23 +138,27 @@
         const navMenu = document.querySelector('#nav ul');
         menuIcon.addEventListener('click', (e) => { e.stopPropagation(); navEl.classList.toggle('menu-open'); });
         document.querySelectorAll('#nav ul a').forEach(link => { link.addEventListener('click', () => { navEl.classList.remove('menu-open'); }); });
-        
+
         // Close menu when clicking outside
         document.addEventListener('click', (e) => { if (navEl.classList.contains('menu-open') && !navMenu.contains(e.target) && !menuIcon.contains(e.target)) { navEl.classList.remove('menu-open'); } });
-// Theme Toggle
+        // Theme Toggle
         const themeToggle = document.getElementById('theme-toggle');
-        const savedTheme = localStorage.getItem('theme') || 'dark';
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        const savedTheme = localStorage.getItem('theme') || 'light';
         document.documentElement.setAttribute('data-theme', savedTheme);
 
-        themeToggle.addEventListener('click', () => {
+        function toggleTheme() {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
-        });
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+        if (themeToggleMobile) {
+            themeToggleMobile.addEventListener('click', toggleTheme);
+        }
     </script>
 </body>
 
 </html>
-
-

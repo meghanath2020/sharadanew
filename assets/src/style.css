@@ -126,11 +126,14 @@
     display: block;
 }
 
-[data-theme="light"] .theme-toggle .fa-sun {
+[data-theme="light"] .theme-toggle .fa-sun,
+[data-theme="light"] .theme-toggle-mobile .fa-sun {
     display: block;
+    color: var(--accent-gold);
 }
 
-[data-theme="light"] .theme-toggle .fa-moon {
+[data-theme="light"] .theme-toggle .fa-moon,
+[data-theme="light"] .theme-toggle-mobile .fa-moon {
     display: none;
 }
 
@@ -259,6 +262,11 @@ ul {
     transform: scale(1.05);
 }
 
+/* Hide mobile-only theme toggle on desktop */
+.mobile-theme-item {
+    display: none;
+}
+
 #nav ul {
     display: flex;
     gap: var(--spacing-lg);
@@ -354,7 +362,49 @@ ul {
     }
 
     .theme-toggle {
+        display: none !important;
+    }
+
+    /* Show toggle inside mobile menu */
+    .mobile-theme-item {
         display: none;
+        margin-top: var(--spacing-md);
+        padding-top: var(--spacing-md);
+        border-top: 1px solid var(--border-subtle);
+    }
+
+    #nav.menu-open .mobile-theme-item {
+        display: block;
+    }
+
+    .theme-toggle-mobile {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        background: transparent;
+        border: none;
+        color: var(--text-secondary);
+        cursor: pointer;
+        padding: var(--spacing-xs) 0;
+        font-size: 0.95rem;
+        font-family: inherit;
+        transition: color var(--transition-fast);
+    }
+
+    .theme-toggle-mobile:hover {
+        color: var(--accent-gold);
+    }
+
+    .theme-toggle-mobile .fa-sun {
+        display: none;
+    }
+
+    [data-theme="light"] .theme-toggle-mobile .fa-moon {
+        display: none;
+    }
+
+    [data-theme="light"] .theme-toggle-mobile .fa-sun {
+        display: inline-block;
     }
 }
 
