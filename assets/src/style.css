@@ -899,6 +899,11 @@ ul {
     object-position: center center;
 }
 
+.global-office .office-info .subtitle {
+    font-size: 0.7rem;
+    white-space: nowrap;
+}
+
 /* ============================================
    Job Cards / Accordion
    ============================================ */
