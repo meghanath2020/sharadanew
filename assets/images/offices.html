@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Sharada Capital Management's office locations across the United States.">
+    <title>Offices | Sharada Capital Management</title>
+    <link rel="icon" href="./assets/images/sharada_title.png" type="image/x-icon">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./assets/src/style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav id="nav" class="scrolled">
+        <div class="nav-inner">
+            <a class="logo-link" href="./index.html">
+                <img class="logo-dark" src="./assets/images/sharada_logo.svg" alt="Sharada Capital Management">
+                <img class="logo-light" src="./assets/images/sharada_logo_light.svg" alt="Sharada Capital Management">
+            </a>
+            <button class="menu-icon" id="menu-icon" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul>
+                <li><a href="./about.html">About Us</a></li>
+                <li><a href="./strategy.html">Our Strategy</a></li>
+                <li><a href="./offices.html" class="active">Offices</a></li>
+                <li><a href="./careers.html">Careers</a></li>
+                <li class="mobile-theme-item">
+                    <button class="theme-toggle-mobile" id="theme-toggle-mobile" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </button>
+                </li>
+            </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header id="header">
+        <h1>Our Offices</h1>
+    </header>
+
+    <!-- Offices Section -->
+    <section class="offices-section">
+        <div class="offices-grid">
+            <!-- Chicago -->
+            <article class="office-card reveal">
+                <div class="office-image">
+                    <img src="./assets/images/chicago.png" alt="Chicago Office">
+                </div>
+                <div class="office-info">
+                    <h3>Chicago</h3>
+                    <p class="subtitle"></p>
+                </div>
+            </article>
+
+            <!-- San Diego -->
+            <article class="office-card reveal reveal-delay-1">
+                <div class="office-image">
+                    <img src="./assets/images/sandiego.png" alt="San Diego Office">
+                </div>
+                <div class="office-info">
+                    <h3>San Diego</h3>
+                    <p class="subtitle"></p>
+                </div>
+            </article>
+
+            <!-- Sarasota -->
+            <article class="office-card reveal reveal-delay-2">
+                <div class="office-image">
+                    <img src="./assets/images/sarasota.png" alt="Sarasota Office">
+                </div>
+                <div class="office-info">
+                    <h3>Sarasota</h3>
+                    <p class="subtitle"></p>
+                </div>
+            </article>
+
+            <!-- Seattle -->
+            <article class="office-card reveal reveal-delay-3">
+                <div class="office-image">
+                    <img src="./assets/images/seattle.png" alt="Seattle Office">
+                </div>
+                <div class="office-info">
+                    <h3>Seattle</h3>
+                    <p class="subtitle"></p>
+                </div>
+            </article>
+
+            <!-- New York -->
+            <article class="office-card reveal reveal-delay-4">
+                <div class="office-image">
+                    <img src="./assets/images/newyork.png" alt="New York Office">
+                </div>
+                <div class="office-info">
+                    <h3>New York</h3>
+                    <p class="subtitle"></p>
+                </div>
+            </article>
+
+            <!-- Global Network -->
+            <article class="office-card reveal reveal-delay-5 global-office">
+                <div class="office-image">
+                    <img src="./assets/images/global_network.png" alt="Global Network">
+                </div>
+                <div class="office-info">
+                    <h3>Global Network</h3>
+                    <p class="subtitle">Consultants & Trading Teams Worldwide</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <img class="logo logo-dark" src="./assets/images/sharada_logo.svg" alt="Sharada Capital Management">
+        <img class="logo logo-light" src="./assets/images/sharada_logo_light.svg" alt="Sharada Capital Management">
+        <p class="copyright">&copy; 2009-<span id="year"></span> Sharada Capital Management.</p>
+        <a href="mailto:jobs@sharadacm.com" class="email-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </footer>
+
+    <!-- Minimal JavaScript -->
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // Mobile Menu Toggle
+        const menuIcon = document.getElementById('menu-icon');
+        const navEl = document.getElementById('nav');
+        const navMenu = document.querySelector('#nav ul');
+        menuIcon.addEventListener('click', (e) => { e.stopPropagation(); navEl.classList.toggle('menu-open'); });
+        document.querySelectorAll('#nav ul a').forEach(link => { link.addEventListener('click', () => { navEl.classList.remove('menu-open'); }); });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => { if (navEl.classList.contains('menu-open') && !navMenu.contains(e.target) && !menuIcon.contains(e.target)) { navEl.classList.remove('menu-open'); } });
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+        if (themeToggleMobile) {
+            themeToggleMobile.addEventListener('click', toggleTheme);
+        }
+    </script>
+</body>
+
+</html>
