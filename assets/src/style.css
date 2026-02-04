@@ -96,6 +96,23 @@
     --shadow-glow: 0 0 30px rgba(184, 149, 46, 0.15);
 }
 
+/* Logo Theme Switching */
+.logo-dark {
+    display: block;
+}
+
+.logo-light {
+    display: none;
+}
+
+[data-theme="light"] .logo-dark {
+    display: none;
+}
+
+[data-theme="light"] .logo-light {
+    display: block;
+}
+
 /* Theme Toggle Button */
 .theme-toggle {
     width: 40px;
@@ -872,6 +889,16 @@ ul {
     margin-right: var(--spacing-xs);
 }
 
+/* Global Network Office Card */
+.global-office .office-image {
+    background: #06101a;
+}
+
+.global-office .office-image img {
+    object-fit: cover;
+    object-position: center center;
+}
+
 /* ============================================
    Job Cards / Accordion
    ============================================ */
@@ -1011,6 +1038,37 @@ ul {
 .btn.secondary:hover {
     background: var(--accent-gold);
     color: var(--bg-primary);
+}
+
+.btn.disabled {
+    background: var(--bg-glass);
+    color: var(--text-muted);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.btn.disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* Job Filled Badge */
+.badge-filled {
+    display: inline-block;
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-full);
+    margin-left: var(--spacing-sm);
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.job-filled {
+    opacity: 0.85;
 }
 
 /* ============================================
