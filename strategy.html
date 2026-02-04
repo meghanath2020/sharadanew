@@ -21,7 +21,8 @@
     <nav id="nav" class="scrolled">
         <div class="nav-inner">
             <a class="logo-link" href="./index.html">
-                <img src="./assets/images/sharada_logo.svg" alt="Sharada Capital Management">
+                <img class="logo-dark" src="./assets/images/sharada_logo.svg" alt="Sharada Capital Management">
+                <img class="logo-light" src="./assets/images/sharada_logo_light.svg" alt="Sharada Capital Management">
             </a>
             <button class="menu-icon" id="menu-icon" aria-label="Toggle Menu">
                 <span></span>
@@ -101,7 +102,8 @@
 
     <!-- Footer -->
     <footer id="footer">
-        <img src="./assets/images/sharada_logo.svg" alt="Sharada Capital Management" class="logo">
+        <img class="logo logo-dark" src="./assets/images/sharada_logo.svg" alt="Sharada Capital Management">
+        <img class="logo logo-light" src="./assets/images/sharada_logo_light.svg" alt="Sharada Capital Management">
         <p class="copyright">&copy; 2009-<span id="year"></span> Sharada Capital Management.</p>
         <a href="mailto:jobs@sharadacm.com" class="email-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
     </footer>
@@ -136,7 +138,7 @@
         // Theme Toggle
         const themeToggle = document.getElementById('theme-toggle');
         const themeToggleMobile = document.getElementById('theme-toggle-mobile');
-        const savedTheme = localStorage.getItem('theme') || 'light';
+        const savedTheme = localStorage.getItem('theme') || 'dark';
         document.documentElement.setAttribute('data-theme', savedTheme);
 
         function toggleTheme() {
