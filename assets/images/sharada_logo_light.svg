@@ -2,16 +2,16 @@
   <!-- Candlestick Chart -->
   <g>
     <!-- Candle 1 - Short bearish -->
-    <line x1="25" y1="25" x2="25" y2="75" stroke="#c0c0c0" stroke-width="1"/>
-    <rect x="20" y="35" width="10" height="25" fill="#c0c0c0"/>
+    <line x1="25" y1="25" x2="25" y2="75" stroke="#d4af37" stroke-width="1"/>
+    <rect x="20" y="35" width="10" height="25" fill="#0a0f1c"/>
     
     <!-- Candle 2 - Tall bullish -->
     <line x1="45" y1="15" x2="45" y2="80" stroke="#d4af37" stroke-width="1"/>
     <rect x="40" y="25" width="10" height="40" fill="#d4af37"/>
     
     <!-- Candle 3 - Medium bearish -->
-    <line x1="65" y1="20" x2="65" y2="75" stroke="#c0c0c0" stroke-width="1"/>
-    <rect x="60" y="30" width="10" height="30" fill="#c0c0c0"/>
+    <line x1="65" y1="20" x2="65" y2="75" stroke="#d4af37" stroke-width="1"/>
+    <rect x="60" y="30" width="10" height="30" fill="#0a0f1c"/>
     
     <!-- Candle 4 - Tall bullish -->
     <line x1="85" y1="10" x2="85" y2="70" stroke="#d4af37" stroke-width="1"/>
