@@ -313,8 +313,7 @@ ul {
     font-style: italic;
     opacity: 0.6;
     font-family: 'Georgia', serif;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
+    letter-spacing: 0.1em;
     border-right: 2px solid var(--accent-gold);
     padding-right: 4px;
     animation: blink-cursor 0.7s step-end infinite;
