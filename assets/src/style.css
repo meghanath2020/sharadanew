@@ -278,6 +278,54 @@ ul {
     transition: transform var(--transition-fast);
 }
 
+/* Hero Title - Text styling for homepage */
+.hero-title {
+    font-family: 'Georgia', serif;
+    font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
+    font-weight: 400;
+    color: #d4af37 !important;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+}
+
+.hero-tagline {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto var(--spacing-xl);
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Strategy Ticker */
+.strategy-ticker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: calc(var(--spacing-sm) * -1);
+    margin-bottom: var(--spacing-md);
+    font-size: 0.75rem;
+    min-height: 1.5em;
+}
+
+.ticker-text {
+    color: var(--text-muted);
+    font-style: italic;
+    opacity: 0.6;
+    font-family: 'Georgia', serif;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-right: 2px solid var(--accent-gold);
+    padding-right: 4px;
+    animation: blink-cursor 0.7s step-end infinite;
+}
+
+@keyframes blink-cursor {
+    50% {
+        border-color: transparent;
+    }
+}
+
 .logo-link:hover img {
     transform: scale(1.05);
 }

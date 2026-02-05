@@ -50,10 +50,14 @@
 
     <!-- Hero Section -->
     <section id="intro">
-        <img class="logo logo-dark" src="./assets/images/sharada_logo.svg" alt="Sharada Capital Management">
-        <img class="logo logo-light" src="./assets/images/sharada_logo_light.svg" alt="Sharada Capital Management">
-        <h1><span>Sharada</span></h1>
-        <p>Capital Management — A boutique quantitative trading firm delivering robust returns through sophisticated
+        <h1 class="hero-title">Sharada Capital Management</h1>
+
+        <!-- Rotating Strategy Ticker -->
+        <div class="strategy-ticker">
+            <span class="ticker-text"></span>
+        </div>
+
+        <p class="hero-tagline">A boutique quantitative trading firm delivering robust returns through sophisticated
             algorithmic strategies.</p>
         <div class="scroll-down">
             <a href="#features">
@@ -191,6 +195,44 @@
                 navEl.classList.remove('menu-open');
             }
         });
+
+        // Strategy Ticker - Typewriter Effect
+        const strategies = ['Spot', 'Forwards', 'NDF', 'Swaps', 'Equity Indices', 'Commodities', 'FX', 'Interest Rates', 'Energy Futures', 'Equities', 'Equity Options'];
+        const tickerText = document.querySelector('.ticker-text');
+        let currentIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeWriter() {
+            if (!tickerText) return;
+
+            const currentWord = strategies[currentIndex];
+
+            if (isDeleting) {
+                tickerText.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                tickerText.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let delay = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                delay = 1500; // Pause at end
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                currentIndex = (currentIndex + 1) % strategies.length;
+                delay = 300;
+            }
+
+            setTimeout(typeWriter, delay);
+        }
+
+        if (tickerText) {
+            typeWriter();
+        }
     </script>
 </body>
 
