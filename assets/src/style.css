@@ -539,6 +539,14 @@ ul {
     opacity: 0;
 }
 
+/* Page tagline - italics and uppercase */
+.page-tagline {
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 75%;
+}
+
 .scroll-down {
     position: absolute;
     bottom: var(--spacing-xl);
